@@ -477,6 +477,7 @@ class GerritConnection(BaseConnection):
             change.is_current_patchset = True
         else:
             change.is_current_patchset = False
+        self.log.debug("Updating %s: is_current_patchset %s, max_ps %s (%s), patchset %s (%s)" % (change, change.is_current_patchset, max_ps, type(max_ps), change.patchset, type(change.patchset),))
         change.files = files
 
         change.is_merged = self._isMerged(change)
